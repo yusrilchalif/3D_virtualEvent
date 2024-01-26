@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class InformationTextController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class InformationTextController : MonoBehaviour
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI informationText;
 
+    public Button closeBtn;
+
     //private void Awake()
     //{
     //    if(instance != this)
@@ -26,7 +29,7 @@ public class InformationTextController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        closeBtn.onClick.AddListener(()=> PopUpController.Instance.HidePopUp());
     }
 
     // Update is called once per frame

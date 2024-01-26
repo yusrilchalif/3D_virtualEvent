@@ -10,9 +10,12 @@ public class PopUpController : MonoBehaviour
     public bool isActive = false;
     public GameObject canvasPopUp;
 
+    public CameraMovement cameraMovement;
+
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
     }
 
     private void Start()
@@ -24,11 +27,13 @@ public class PopUpController : MonoBehaviour
     {
         isActive = true;
         canvasPopUp.SetActive(true);
+        cameraMovement.enabled = false;
     }
 
     public void HidePopUp()
     {
         isActive = false;
         canvasPopUp.SetActive(false);
+        cameraMovement.enabled = true;
     }
 }
