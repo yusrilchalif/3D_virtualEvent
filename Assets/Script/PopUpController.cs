@@ -5,8 +5,15 @@ using UnityEngine.UI;
 
 public class PopUpController : MonoBehaviour
 {
+    public static PopUpController Instance { get; private set; }
+
     public bool isActive = false;
     public GameObject canvasPopUp;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {

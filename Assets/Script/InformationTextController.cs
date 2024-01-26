@@ -15,8 +15,6 @@ public class InformationTextController : MonoBehaviour
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI informationText;
 
-    public GameObject canvasPopUp;
-
     //private void Awake()
     //{
     //    if(instance != this)
@@ -28,7 +26,7 @@ public class InformationTextController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvasPopUp.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -40,16 +38,20 @@ public class InformationTextController : MonoBehaviour
     public void OnMouseDown()
     {
         Debug.Log("Mouse Down detected");
-        StartCoroutine(ShowPopUp());
-    }
+        //StartCoroutine(ShowPopUp());
 
-    IEnumerator ShowPopUp()
-    {
-        Debug.Log("Showing Popup");
-        canvasPopUp.SetActive(true);
+        PopUpController.Instance.ShowPopUp();
         titleText.text = titleString.ToString();
         informationText.text = informationString.ToString();
-
-        yield return new WaitForSeconds(0.5f);
     }
+
+    //IEnumerator ShowPopUp()
+    //{
+    //    Debug.Log("Showing Popup");
+    //    canvasPopUp.SetActive(true);
+    //    titleText.text = titleString.ToString();
+    //    informationText.text = informationString.ToString();
+
+    //    yield return new WaitForSeconds(0.5f);
+    //}
 }
