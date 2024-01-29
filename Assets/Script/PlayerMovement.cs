@@ -21,9 +21,8 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        // Mengambil vektor maju dari transformasi kamera
+        // Mengambil vektor maju langsung dari transformasi kamera
         Vector3 cameraForward = mainCamera.transform.forward;
-        cameraForward.y = 0f; // Menetapkan nilai y menjadi 0 agar pergerakan hanya pada bidang horizontal
 
         // Normalisasi vektor maju agar panjangnya tetap 1
         cameraForward.Normalize();
