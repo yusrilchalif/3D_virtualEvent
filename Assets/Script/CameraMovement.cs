@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float sensitivity = 2.0f;
-    public PopUpController popUpController;
+    public float sensitivity = 10.0f;
 
     void Start()
     {
