@@ -4,32 +4,35 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float sensitivity = 10.0f;
-
-    void Start()
-    {
-        //popUpController = GetComponent<PopUpController>();
-        //if (popUpController == null)
-        //{
-        //    Debug.LogError("PopupController script not found on the camera.");
-        //}
-    }
-
+    public float sensitivity = 2.0f; // Kurangi sensitivitas
+    public float maxYRotation = 80.0f; // Batasi rotasi pada sumbu Y
 
     void Update()
     {
-        //if(popUpController.isActive)
-        //{
+        // Check apakah tombol mouse kiri ditekan
+        if (Input.GetMouseButton(0))
+        {
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
 
-            // Rotasi kamera berdasarkan input mouse
+            // Ubah rotasi kamera berdasarkan input mouse
             transform.Rotate(Vector3.up * mouseX * sensitivity);
             transform.Rotate(Vector3.left * mouseY * sensitivity);
 
             // Batasi rotasi pada sumbu Y agar kamera tidak terbalik
-            float xRotation = Mathf.Clamp(transform.rotation.eulerAngles.x, 0f, 90f);
-            transform.rotation = Quaternion.Euler(xRotation, transform.rotation.eulerAngles.y, 0f);
-        //}
+            float currentXRotation = transform.rotation.eulerAngles.x;
+            float clampedXRotation = ClampAngle(currentXRotation, -maxYRotation, maxYRotation);
+
+            // Terapkan rotasi yang sudah dibatasi
+            transform.rotation = Quaternion.Euler(clampedXRotation, transform.rotation.eulerAngles.y, 0f);
+        }
+    }
+
+    // Fungsi untuk membatasi sudut rotasi pada sumbu tertentu
+    float ClampAngle(float angle, float min, float max)
+    {
+        if (angle < 0f) angle += 360f;
+        if (angle > 180f) return Mathf.Max(angle, 360f + min);
+        return Mathf.Min(angle, max);
     }
 }
