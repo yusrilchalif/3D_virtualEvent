@@ -7,46 +7,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 16x9 1
-    second: {fileID: 2100000, guid: 36dc367503fb7f04694c4908142d69d4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 16x9 2
-    second: {fileID: 2100000, guid: 41948b9ea991e9b4cbecad6c85bc92d1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 16x9 3
-    second: {fileID: 2100000, guid: 6b1531a96349d4f4a8aca231fc02a95d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 1x1 1
-    second: {fileID: 2100000, guid: 5e2f8898ee7ca924eb700e62d8871591, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 1x1 2
-    second: {fileID: 2100000, guid: 8ea1b8f575a7e3a478891f99a2e2c357, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 1x1 3
-    second: {fileID: 2100000, guid: a24e3d0e99a21d24eb5ce127f0eb8aea, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 9x16 1
-    second: {fileID: 2100000, guid: c668f79834d64fe4e91aa886b9b029a5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 9x16 3
-    second: {fileID: 2100000, guid: 23d18302479c5554cb1017c8f976827e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Alumunium
     second: {fileID: 2100000, guid: 6ac3a262b6e4cda42bf983d8bfe5c8e0, type: 2}
   - first:
@@ -64,6 +24,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Dinding Grey Out
     second: {fileID: 2100000, guid: 25182ae0a87cf38479431dd3f5428205, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame
+    second: {fileID: 2100000, guid: 22a3c0bbcf30b364fb71a510a8f8c37d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -92,8 +57,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Putih
-    second: {fileID: 2100000, guid: db16eb92a2052c0489454dd4d0583185, type: 2}
+      name: PAINTING
+    second: {fileID: 2100000, guid: 96cb64d46464fb244ab13515590641b1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
