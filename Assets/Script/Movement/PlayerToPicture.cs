@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerToPicture : MonoBehaviour
 {
-    public float zoomSpeed = 5f;
-    public float approachDistance; // Jarak pendekatan ke picture
+    public float zoomSpeed = 2f;
+    public float approachDistance = 35f; // Jarak pendekatan ke picture
+
+    private bool isMoving = false; // Tandai apakah pemain sedang bergerak
 
     void Update()
     {
@@ -15,7 +17,7 @@ public class PlayerToPicture : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isMoving)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -32,24 +34,32 @@ public class PlayerToPicture : MonoBehaviour
 
     void ZoomToLukisan(Transform lukisanTransform)
     {
-        Vector3 targetPosition = lukisanTransform.position + lukisanTransform.forward / approachDistance;
+        Vector3 targetPosition = lukisanTransform.position + lukisanTransform.forward * approachDistance;
         StartCoroutine(MovePlayer(targetPosition));
     }
 
     IEnumerator MovePlayer(Vector3 targetPosition)
     {
         float elapsedTime = 0f;
-        float duration = 0.2f;
+        float duration = 0.5f;
 
         Rigidbody playerRigidbody = GetComponent<Rigidbody>();
 
         if (playerRigidbody != null)
             playerRigidbody.useGravity = false;
 
+        isMoving = true;
+
         while (elapsedTime < duration)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
+
+            // Periksa jarak antara pemain dan target position
+            float distance = Vector3.Distance(transform.position, targetPosition);
+            if (distance <= 2f)
+                break;
+
             yield return null;
         }
 
@@ -57,5 +67,7 @@ public class PlayerToPicture : MonoBehaviour
 
         if (playerRigidbody != null)
             playerRigidbody.useGravity = true;
+
+        isMoving = false;
     }
 }

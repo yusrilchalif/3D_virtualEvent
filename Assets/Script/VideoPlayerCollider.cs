@@ -8,14 +8,12 @@ public class VideoPlayerCollider : MonoBehaviour
 {
     [SerializeField] VideoPlayer videoPlayer;
 
-    public Renderer thumbnailMaterial;
 
 
     // Start is called before the first frame update
     void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
-        thumbnailMaterial = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -48,7 +46,6 @@ public class VideoPlayerCollider : MonoBehaviour
         {
             // Putar video
             videoPlayer.Play();
-            SetThumbnailActive(false);
         }
     }
 
@@ -58,12 +55,7 @@ public class VideoPlayerCollider : MonoBehaviour
         {
             // Hentikan video
             videoPlayer.Stop();
-            SetThumbnailActive(true);
         }
     }
 
-    void SetThumbnailActive(bool isActive)
-    {
-        thumbnailMaterial.enabled = isActive;
-    }
 }

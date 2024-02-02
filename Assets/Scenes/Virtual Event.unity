@@ -349,7 +349,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 354856024efb4417aba3a85e373fa5dd, type: 2}
+  - {fileID: 2100000, guid: 6e0791f028c67494193337f5998b3bd7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -392,7 +392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 40423462}
-  thumbnailMaterial: {fileID: 40423464}
 --- !u!65 &40423468
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1164,7 +1163,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b336e5ccc40c20240aca19f24de2a211,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1306492061}
+      addedObject: {fileID: 1306492064}
   m_SourcePrefab: {fileID: 100100000, guid: b336e5ccc40c20240aca19f24de2a211, type: 3}
 --- !u!4 &121614466 stripped
 Transform:
@@ -4518,8 +4517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef58ff27fa194eedae251af1b549301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 100
-  approachDistance: 4
+  zoomSpeed: 0.2
+  approachDistance: 1
 --- !u!64 &668660995
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10104,7 +10103,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 121614465}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1306492061
+--- !u!65 &1306492064
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10248,7 +10247,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9110394e034734b349aa14ad70aad34c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13006,7 +13005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1718634512}
-  thumbnailMaterial: {fileID: 0}
 --- !u!328 &1718634512
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -13032,7 +13030,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 0.66
+  - 0
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
