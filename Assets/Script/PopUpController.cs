@@ -10,7 +10,7 @@ public class PopUpController : MonoBehaviour
     public bool isActive = false;
     public GameObject canvasPopUp;
 
-    public CameraMovement cameraMovement;
+    public MouseLook mouseLook;
 
     private void Awake()
     {
@@ -27,13 +27,13 @@ public class PopUpController : MonoBehaviour
     {
         isActive = true;
         canvasPopUp.SetActive(true);
-        cameraMovement.enabled = false;
+        mouseLook.enabled = false;
     }
 
     public void HidePopUp()
     {
         isActive = false;
         canvasPopUp.SetActive(false);
-        cameraMovement.enabled = true;
+        mouseLook.enabled = true;
     }
 }
