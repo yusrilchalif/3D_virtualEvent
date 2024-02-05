@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerToPicture : MonoBehaviour
 {
     public float zoomSpeed = 2f;
-    public float approachDistance = 35f; // Jarak pendekatan ke picture
+    public float approachDistance = 50f; // Jarak pendekatan ke picture
 
     private bool isMoving = false; // Tandai apakah pemain sedang bergerak
 

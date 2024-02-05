@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class VideoPlayerCollider : MonoBehaviour
 {
     [SerializeField] VideoPlayer videoPlayer;
-
-
+    [SerializeField] Canvas thumbnailSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class VideoPlayerCollider : MonoBehaviour
         {
             print("Video play");
             PlayVideo();
+            thumbnailSprite.enabled = false;
         }
     }
 
@@ -37,6 +38,8 @@ public class VideoPlayerCollider : MonoBehaviour
         {
             print(" Video stop");
             StopVideo();
+            thumbnailSprite.enabled = true;
+
         }
     }
 
