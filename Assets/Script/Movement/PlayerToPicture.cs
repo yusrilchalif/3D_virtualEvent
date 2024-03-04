@@ -4,60 +4,66 @@ using UnityEngine;
 
 public class PlayerToPicture : MonoBehaviour
 {
-    public float zoomSpeed = 5f;
-    public float maxRaycastDistance = 10f; // Jarak maksimum raycast
-    public float maxZoomDistance = 3f; // Batas maksimum jarak zoom
-
-    private Camera mainCamera;
-    private Vector3 originalPosition;
-    private bool isZoomed = false;
-    private Transform targetImage;
-
-    void Start()
-    {
-        mainCamera = Camera.main;
-        originalPosition = mainCamera.transform.position;
-    }
+    Transform targetLukisan;
+    float speed = 2.0f;
+    float maxDistance = 5.0f;
+    string wallTag = "Wall";
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Ganti dengan input yang sesuai (misalnya touch input untuk perangkat mobile)
+        if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, maxRaycastDistance))
+
+            if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.CompareTag("Picture"))
                 {
-                    targetImage = hit.collider.transform;
-                    ToggleZoom();
+                    MendekatiLukisan(hit.transform);
                 }
             }
         }
 
-        if (isZoomed)
-        {
-            // Setel kamera ke posisi target gambar
-            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, targetImage.position, Time.deltaTime * zoomSpeed);
+        MoveTowardsLukisan();
+    }
 
-            // Batasi jarak zoom
-            float distance = Vector3.Distance(mainCamera.transform.position, targetImage.position);
-            if (distance > maxZoomDistance)
+    void MoveTowardsLukisan()
+    {
+        if (targetLukisan != null)
+        {
+            float distance = Vector3.Distance(transform.position, targetLukisan.position);
+
+            if (distance > maxDistance && !IsWallBetweenPlayerAndPainting())
             {
-                mainCamera.transform.position = (mainCamera.transform.position - targetImage.position).normalized * maxZoomDistance + targetImage.position;
+                transform.position = Vector3.Lerp(transform.position, targetLukisan.position, Time.deltaTime * speed);
             }
         }
     }
 
-    void ToggleZoom()
+    bool IsWallBetweenPlayerAndPainting()
     {
-        isZoomed = !isZoomed;
-
-        if (!isZoomed)
+        if (targetLukisan == null)
         {
-            // Kembalikan kamera ke posisi awal
-            mainCamera.transform.position = originalPosition;
+            return false;
         }
+
+        Ray ray = new Ray(transform.position, targetLukisan.position - transform.position);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider != null && hit.collider.CompareTag(wallTag))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    void MendekatiLukisan(Transform lukisanTransform)
+    {
+        targetLukisan = lukisanTransform;
     }
 }
