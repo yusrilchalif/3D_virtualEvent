@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class MoveCloserToPainting : MonoBehaviour
 {
     public float moveSpeed = 5f; // Kecepatan pergerakan player
-    public float minDistance = 1f; // Jarak minimum antara player dan lukisan
     public LayerMask pictureLayerMask; // LayerMask untuk lukisan
 
     private Camera mainCamera;
@@ -20,25 +19,27 @@ public class MoveCloserToPainting : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             RaycastHit hit;
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, pictureLayerMask))
             {
-                // Mengecek apakah objek yang terkena raycast memiliki tag "Picture"
-                if (hit.collider.CompareTag("Picture"))
-                {
-                    MoveToPicture(hit.collider.transform.position);
-                }
+                MoveToPicture(hit.point);
             }
         }
     }
 
     private void MoveToPicture(Vector3 targetPosition)
     {
-        // Mengatur posisi player langsung ke posisi lukisan yang diklik
-        transform.position = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
+        // Hitung arah ke titik yang diinginkan
+        Vector3 moveDirection = (targetPosition - transform.position).normalized;
+
+        // Hitung posisi target berdasarkan jarak minimum dari lukisan
+        Vector3 targetPositionAdjusted = targetPosition - moveDirection * 0.1f; // Mengurangi sedikit jarak untuk menghindari tabrakan
+
+        // Pindahkan karakter ke posisi target
+        characterController.Move((targetPositionAdjusted - transform.position) * moveSpeed * Time.deltaTime);
     }
 }
