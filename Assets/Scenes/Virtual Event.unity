@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30cfd8b822144f62b527d33d4baf50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitify: 400
+  mouseSensitify: 200
   playerBody: {fileID: 647226478}
 --- !u!64 &331908593
 MeshCollider:
