@@ -775,11 +775,7 @@ PlayerSettings:
   webGLMemorySize: 32
   webGLExceptionSupport: 1
   webGLNameFilesAsHashes: 0
-<<<<<<< Updated upstream
   webGLDataCaching: 1
-=======
-  webGLDataCaching: 0
->>>>>>> Stashed changes
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
@@ -894,11 +890,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 3
-<<<<<<< Updated upstream
   activeInputHandler: 2
-=======
-  activeInputHandler: 0
->>>>>>> Stashed changes
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
