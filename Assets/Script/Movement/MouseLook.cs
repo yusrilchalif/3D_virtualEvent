@@ -19,8 +19,8 @@ public class MouseLook : MonoBehaviour
     void Update()
     {
         // Check if the left mouse button is held down
-        //if (Input.GetMouseButton(0))
-        //{
+        if (Input.GetMouseButton(0))
+        {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitify * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitify * Time.deltaTime;
 
@@ -29,6 +29,6 @@ public class MouseLook : MonoBehaviour
 
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             playerBody.Rotate(Vector3.up * mouseX);
-        //}
+        }
     }
 }
