@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Aurora
+    second: {fileID: 2100000, guid: b34d2862fb8a6e74f8b97af5735c3a81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Dinding
     second: {fileID: 2100000, guid: 42f474ca6c45af2429b18db11352ff33, type: 2}
   - first:
@@ -37,6 +42,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Glass Black
+    second: {fileID: 2100000, guid: 73426d17acfa1d34682151d421d4f865, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: LED
     second: {fileID: 2100000, guid: 63fcd2bfb52b3f64594f64dce6790cee, type: 2}
   - first:
@@ -59,6 +69,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: PAINTING
     second: {fileID: 2100000, guid: 64d8237c05ad67e4cb4def235e637bce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White_Alumunium
+    second: {fileID: 2100000, guid: c02da46e418e9ca499ccc76555a9d903, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
